@@ -1,37 +1,75 @@
-// gcc -o strlen -Wall strlen.c
+/*
+ strlen.c
+ project: strlen
+ url: http://sourceforge.net/projects/strlen/
+ author: Isaac Turner <turner.isaac@gmail.com>
+ Copyright (C) 27-Jan-2012
 
+ build: gcc -o strlen -Wall strlen.c
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include <stdlib.h>
 #include <stdio.h>
-#include <strings.h>
 #include <string.h>
 
 int main(int argc, char* argv[])
 {
-  if(argc == 1 && (strcmp(argv[0],"-h") == 0 || strcmp(argv[0],"-H") == 0))
+  if(argc == 2 &&
+     (strcasecmp(argv[1], "-h") == 0 || strcasecmp(argv[1], "--h") == 0 ||
+      strcasecmp(argv[1], "-help") == 0 || strcasecmp(argv[1], "--help") == 0))
   {
-    printf("usage: strlen <string>\n");
-    printf("Prints length of a string (if <str> not given read from stdin)\n");
-    return -1;
+    printf("usage: strlen [string1 ..]\n");
+    printf(
+"  Prints length of strings, one per line.  If args not given reads from STDIN\n"
+"  and prints the length of each line.\n");
+    exit(EXIT_FAILURE);
   }
 
   if(argc == 1)
   {
     // Read from STDIN
-    int c;
-    int length = 0;
+    int old_c = EOF, c = getchar();
+    unsigned long length = 0;
 
-    while((c = getchar()) != EOF)
+    while(c != EOF)
     {
-      if(c == '\n' || c == '\r') {
-        printf("%i\n", length);
-        length = 0;
+      if(c == '\n' || c == '\r')
+      {
+        if(old_c == '\r' && c == '\n')
+        {
+          // Character read in was part of previous end-of-line
+        }
+        else
+        {
+          printf("%lu\n", length);
+          length = 0;
+        }
       }
-      else {
+      else
+      {
         length++;
       }
+
+      old_c = c;
+      c = getchar();
     }
 
-    if(c == '\n' || c == '\r') {
-      printf("%i\n", length);
+    if(old_c != '\n' && old_c != '\r')
+    {
+      printf("%lu\n", length);
     }
   }
   else
@@ -39,9 +77,9 @@ int main(int argc, char* argv[])
     int i;
     for(i = 1; i < argc; i++)
     {
-      printf("%i\n", (int)strlen(argv[i]));
+      printf("%lu\n", (unsigned long)strlen(argv[i]));
     }
   }
-  
-  return 0;
+
+  return EXIT_SUCCESS;
 }
