@@ -1,0 +1,27 @@
+strlen - a command line utility
+
+== build ==
+
+1) To build:
+
+$ make
+
+2) To add a softlink to the executable
+
+ln -s PATH/TO/STRLEN ~/bin/strlen
+
+== Run ==
+
+Some examples:
+
+$ strlen asdfasdfasdf as
+8
+2
+
+$ strlen "as d"
+4
+
+$ echo "hi
+bye" | strlen
+2
+3
