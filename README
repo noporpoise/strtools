@@ -25,3 +25,15 @@ $ echo "hi
 bye" | strlen
 2
 3
+
+== More ==
+
+ project: strlen
+ url: http://sourceforge.net/projects/strlen/
+ author: Isaac Turner <turner.isaac@gmail.com>
+ license: GPLv3
+ copyright (C) 27-Jan-2012
+
+Please get in touch with bug reports or request features,
+
+Isaac
