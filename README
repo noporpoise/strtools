@@ -8,11 +8,17 @@ $ make
 
 2) To add a softlink to the executable
 
-ln -s PATH/TO/STRLEN ~/bin/strlen
+ln -s PATH/TO/STRLEN/strlen ~/bin/strlen
+ln -s PATH/TO/STRLEN/uc ~/bin/uc
+ln -s PATH/TO/STRLEN/lc ~/bin/lc
+
+or add the directory to your ~/.profile:
+
+export PATH=$(PATH):PATH/TO/STRLEN/
 
 == Run ==
 
-Some examples:
+## strlen ##
 
 $ strlen asdfasdfasdf as
 8
@@ -25,6 +31,35 @@ $ echo "hi
 bye" | strlen
 2
 3
+
+## uc ##
+
+dhcp615:~ isaac$ uc asdfasdfasdf as
+ASDFASDFASDF
+AS
+
+dhcp615:~ isaac$ uc "as d"
+AS D
+
+dhcp615:~ isaac$ echo "hi
+> bye" | uc
+HI
+BYE
+
+## lc ##
+
+dhcp615:~ isaac$ lc ASDFASDFasdf aS
+asdfasdfasdf
+as
+
+dhcp615:~ isaac$ lc "aS D.2"
+as d.2
+
+dhcp615:~ isaac$ echo "Hi
+> BYE?" | lc
+hi
+bye?
+dhcp615:~ isaac$
 
 == More ==
 

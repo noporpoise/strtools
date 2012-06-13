@@ -1,7 +1,9 @@
+CFLAGS=-Wall -O3
+
 all:
-	gcc -o strlen -Wall strlen.c
-	gcc -o uc -Wall change_case.c
-	gcc -o lc -Wall -DLOWER_CASE=1 change_case.c
+	gcc -o strlen $(CFLAGS) strlen.c
+	gcc -o uc $(CFLAGS) change_case.c
+	gcc -o lc $(CFLAGS) -DLOWER_CASE=1 change_case.c
 
 clean:
 	rm strlen uc lc

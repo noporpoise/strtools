@@ -5,7 +5,7 @@
  author: Isaac Turner <turner.isaac@gmail.com>
  Copyright (C) 27-Jan-2012
 
- build: gcc -o strlen -Wall strlen.c
+ build: type 'make'
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by

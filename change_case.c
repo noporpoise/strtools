@@ -1,11 +1,11 @@
 /*
  change_case.c
- project: change string case
+ project: strlen
+ url: http://sourceforge.net/projects/strlen/
  author: Isaac Turner <turner.isaac@gmail.com>
- Copyright (C) 27-Jan-2012
+ Copyright (C) 13-Jun-2012
 
- build: gcc -o uc -Wall uc.c
- (or just type 'make')
+ build: type 'make'
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
