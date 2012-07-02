@@ -1,4 +1,4 @@
-CFLAGS=-Wall -O3
+CFLAGS = -O3 -Wall -Wextra
 
 all:
 	gcc -o strlen $(CFLAGS) strlen.c
