@@ -8,13 +8,14 @@ $ make
 
 2) To add a softlink to the executable
 
-ln -s PATH/TO/STRLEN/strlen ~/bin/strlen
-ln -s PATH/TO/STRLEN/uc ~/bin/uc
-ln -s PATH/TO/STRLEN/lc ~/bin/lc
+ln -s PATH/TO/strtools ~/bin/strtools
+ln -s PATH/TO/uc ~/bin/uc
+ln -s PATH/TO/lc ~/bin/lc
 
-or add the directory to your ~/.profile:
+Or add the directory to your ~/.profile:
 
-export PATH=$(PATH):PATH/TO/STRLEN/
+export PATH=$(PATH):PATH/TO/STRTOOLS/
+
 
 == Run ==
 
@@ -23,47 +24,74 @@ export PATH=$(PATH):PATH/TO/STRLEN/
 $ strlen asdfasdfasdf as
 8
 2
-
 $ strlen "as d"
 4
-
 $ echo "hi
 bye" | strlen
 2
 3
 
-## uc ##
 
-dhcp615:~ isaac$ uc asdfasdfasdf as
+## uc ##
+$ uc asdfasdfasdf as
 ASDFASDFASDF
 AS
-
-dhcp615:~ isaac$ uc "as d"
+$ uc "as d"
 AS D
-
-dhcp615:~ isaac$ echo "hi
+$ echo "hi
 > bye" | uc
 HI
 BYE
 
-## lc ##
 
-dhcp615:~ isaac$ lc ASDFASDFasdf aS
+## lc ##
+$ lc ASDFASDFasdf aS
 asdfasdfasdf
 as
-
-dhcp615:~ isaac$ lc "aS D.2"
+$ lc "aS D.2"
 as d.2
-
-dhcp615:~ isaac$ echo "Hi
+$ echo "Hi
 > BYE?" | lc
 hi
 bye?
-dhcp615:~ isaac$
+$
+
+
+## char2ascii ##
+$ ./char2ascii asdf
+97
+115
+100
+102
+$
+
+
+## ascii2char ##
+$ ./ascii2char 98 99 100
+b
+c
+d
+$
+
+
+## strcmp ##
+$ ./strcmp asdf asdF
+32
+$ ./strcmp asdf asdf
+0
+$
+
+
+## strcasecmp ##
+$ ./strcasecmp asdf asdF
+0
+$ ./strcasecmp asdf qwer
+-16
+$ 
 
 == More ==
 
- project: strlen
+ project: strtools
  url: http://sourceforge.net/projects/strlen/
  author: Isaac Turner <turner.isaac@gmail.com>
  license: GPLv3
@@ -72,3 +100,18 @@ dhcp615:~ isaac$
 Please get in touch with bug reports or request features,
 
 Isaac
+
+== Coming soon ==
+
+int isalnum(int c) -- True if c is alphanumeric. 
+int isalpha(int c) -- True if c is a letter. 
+int isascii(int c) -- True if c is ASCII . 
+int iscntrl(int c) -- True if c is a control character. 
+int isdigit(int c) -- True if c is a decimal digit 
+int isgraph(int c) -- True if c is a graphical character. 
+int islower(int c) -- True if c is a lowercase letter 
+int isprint(int c) -- True if c is a printable character 
+int ispunct (int c) -- True if c is a punctuation character. 
+int isspace(int c) -- True if c is a space character. 
+int isupper(int c) -- True if c is an uppercase letter. 
+int isxdigit(int c) -- True if c is a hexadecimal digit

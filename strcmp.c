@@ -1,6 +1,6 @@
 /*
  strlen.c
- project: strcmp
+ project: strtools
  url: http://sourceforge.net/projects/strlen/
  author: Isaac Turner <turner.isaac@gmail.com>
  Copyright (C) 27-Jan-2012
@@ -25,18 +25,25 @@
 #include <stdio.h>
 #include <string.h>
 
+// CMP_FUNC is either strcmp or strcasecmp
+
+// stringification with macro expansion...
+// http://stackoverflow.com/a/2653351/431087
+#define xstr(a) str(a)
+#define str(a) #a
+
 int main(int argc, char* argv[])
 {
   if(argc != 3)
   {
-    printf("usage: strcmp <string1> <string2>\n");
+    printf("usage: " xstr(CMP_FUNC) " <string1> <string2>\n");
     exit(EXIT_FAILURE);
   }
 
   // Turn off buffering
   setbuf(stdout, NULL);
 
-  printf("%i\n", strcmp(argv[1], argv[2]));
+  printf("%i\n", CMP_FUNC(argv[1], argv[2]));
 
   return EXIT_SUCCESS;
 }

@@ -1,6 +1,6 @@
 /*
  change_case.c
- project: strlen
+ project: strtools
  url: http://sourceforge.net/projects/strlen/
  author: Isaac Turner <turner.isaac@gmail.com>
  Copyright (C) 13-Jun-2012

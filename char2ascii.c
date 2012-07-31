@@ -1,6 +1,6 @@
 /*
  char2ascii.c
- project: strlen
+ project: strtools
  url: http://sourceforge.net/projects/strlen/
  author: Isaac Turner <turner.isaac@gmail.com>
  Copyright (C) 27-Jan-2012
