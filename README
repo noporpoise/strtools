@@ -89,6 +89,11 @@ $ ./strcasecmp asdf qwer
 -16
 $ 
 
+## strrev ##
+$ ./strrev asdf df
+fdsa
+fd
+
 == More ==
 
  project: strtools
